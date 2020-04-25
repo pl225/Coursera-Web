@@ -7,22 +7,24 @@ h1 {
 }
 
 section {
+	position: relative;
 	border: 1px solid black;
 	background-color: gray;
 	float: left;
-	margin: 10px;
+	margin: 20px;
 }
 
 section p:nth-child(1) {
-	float: right;
+	position: absolute;
+	right: 0;
 	margin: auto;
 	padding: 10px;
 	border: 1px solid black;
 }
 
 section p:nth-child(2) {
-	clear: right;
 	margin: 15px;
+	margin-top: 50px;
 }
 
 .first {
@@ -52,7 +54,9 @@ section p:nth-child(2) {
 		margin-right: 2%;
 	}
 	body section:nth-child(4) {
-		width: 100%;
+		width: 96%;
+		margin-left: 2%;
+		margin-right: 2%;
 	}
 }
 
