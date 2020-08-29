@@ -36,6 +36,19 @@ $(() => {
 		insertHTML(selector, html);
 	};
 
+	var switchMenuToActive = function () {
+
+		var classes = document.querySelector("#navHomeButton").className;
+		classes = classes.replace(new RegExp("active", "g"), "");
+		document.querySelector("#navHomeButton").className = classes;
+
+		classes = document.querySelector("#navMenuButton").className;
+		if (classes.indexOf("active") == -1) {
+		    classes += " active";
+		    document.querySelector("#navMenuButton").className = classes;
+		}
+	};
+
 	document.addEventListener("DOMContentLoaded", (event) => {
 		showLoading('#main-content');
 		$ajaxUtils.sendGetRequest(
@@ -73,6 +86,9 @@ $(() => {
 				$ajaxUtils.sendGetRequest(
 					categoryHtml,
 					function (categoryHtml) {
+
+						switchMenuToActive();
+
 						var categoriesViewHtml = buildCategoriesHtml(
 							categories,
 							categoriesTitleHtml,
@@ -111,6 +127,9 @@ $(() => {
 				$ajaxUtils.sendGetRequest(
 					menuItemHtml,
 					function (menuItemHtml) {
+
+						switchMenuToActive();
+
 						var menuItemsViewHtml = buildMenuItemsHtml(
 							categoryMenuItems,
 							menuItemsTitleHtml,
